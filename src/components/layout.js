@@ -38,7 +38,7 @@ const Layout = ({ children }) => {
         <footer>
           © {new Date().getFullYear()}, Built by
           {` `}
-          <a href="https://www.gatsbyjs.org">Border Lees, Border Line</a>
+          <a href="https://www.gatsbyjs.org">Border Less, Border Line</a>
         </footer>
       </div>
     </>

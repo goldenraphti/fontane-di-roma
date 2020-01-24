@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
-const topRightCategory = [ 'home', 'contact', 'user'];
+const topRightCategory = [ 'home', 'contact', 'map'];
 const listCategories = topRightCategory.map((category) =>
   <li
     style={{
@@ -10,7 +10,11 @@ const listCategories = topRightCategory.map((category) =>
       marginBottom: 0,
     }}
   >
-      <a href="#">{category}</a>
+      <Link
+        to={`/${category}`}
+        style={{
+          color: `pink`,
+        }}>{category}</Link>
   </li>
 );
 
