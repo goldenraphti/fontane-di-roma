@@ -3,11 +3,20 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 
 export default class MyMap extends Component {
   state = {
-    lat: 51.505,
-    lng: -0.09,
-    zoom: 13,
+    lat: 41.895,
+    lng: 	12.475,
+    zoom: 15,
   }
-  
+
+  // light with label
+  CartoDB_Positron = {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19,
+    url: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
+  }
+
+
   render() {
     const position = [this.state.lat, this.state.lng]
     // const { options } = this.props
@@ -16,12 +25,12 @@ export default class MyMap extends Component {
       return (
         <Map center={position} zoom={this.state.zoom} 
         style={{
-          height: `400px`,
           width: `100%`,
+          height: `600px`,
         }} >
           <TileLayer
-            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution={this.CartoDB_Positron.attribution}
+          url={this.CartoDB_Positron.url}
           />
           <Marker position={position}>
             <Popup>

@@ -23,19 +23,25 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const isMapPage = children.some( child => child.type.displayName === 'MyMap');
+
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
           margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
+          maxWidth: isMapPage ? `100%` : 960,
+          padding: isMapPage ? '0' : `0px 1.0875rem 1.45rem`,
           paddingTop: 0,
         }}
       >
         <main>{children}</main>
-        <footer>
+        <footer
+          style={{
+            display:'none',
+          }}
+        >
           © {new Date().getFullYear()}, Built by
           {` `}
           <a href="https://www.gatsbyjs.org">Border Less, Border Line</a>

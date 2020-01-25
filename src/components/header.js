@@ -8,12 +8,15 @@ const listCategories = topRightCategory.map((category) =>
     style={{
       marginLeft: '40px',
       marginBottom: 0,
+      fontSize: `16px`,
+      lineHeight: `0`,
     }}
+    key={category}
   >
       <Link
         to={`/${category}`}
         style={{
-          color: `pink`,
+          color: `#fff`,
         }}>{category}</Link>
   </li>
 );
@@ -22,7 +25,10 @@ const Header = ({ siteTitle }) => (
   <header
     style={{
       background: '#000',
-      marginBottom: `1.45rem`,
+      height: `60px`,
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
     }}
   >
     <div
@@ -31,16 +37,22 @@ const Header = ({ siteTitle }) => (
         justifyContent: 'space-between',
         alignItems: 'baseline',
         margin: `0 auto`,
+        width: `100%`,
         maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        padding: `1rem 2rem 0.8rem`,
       }}
     >
-      <h1 style={{ margin: 0 }}>
+      <h1 style={{
+        margin: 0,
+        lineHeight: 0,
+        }}>
         <Link
           to="/"
           style={{
             color: `white`,
             textDecoration: `none`,
+            fontSize: `20px`,
+            lineHeight: 0,
           }}
         >
           {siteTitle}
