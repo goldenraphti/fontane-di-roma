@@ -44,6 +44,7 @@ const Layout = ({ children }) => {
         >
           © {new Date().getFullYear()}, Built by
           {` `}
+          {/* TODO: replace by Border Less Border Line email */}
           <a href="https://www.gatsbyjs.org">Border Less, Border Line</a>
         </footer>
       </div>
