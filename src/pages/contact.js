@@ -11,7 +11,7 @@ export default ({ data }) => (
     <p>Welcome to Contact Page</p>
 
     <div>
-      <h1>Pages</h1>
+      <h2>Pages</h2>
       {data.allWordpressPage.edges.map(({ node }) => (
         <div key={node.slug}>
           <Link to={node.slug}>

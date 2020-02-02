@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
     }
   `)
 
-  const isMapPage = children.some( child => child.type.displayName === 'MyMap');
+  const isMapPage = children.some( child => child.key === 'MapUI');
 
   return (
     <>
