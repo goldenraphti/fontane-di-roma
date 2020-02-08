@@ -5,7 +5,7 @@ export default class MyMap extends Component {
   state = {
     lat: 41.895,
     lng: 	12.475,
-    zoom: 15,
+    zoom: 14,
   }
 
   // light with label
@@ -20,6 +20,7 @@ export default class MyMap extends Component {
   render() {
     const position = [this.state.lat, this.state.lng]
     // const { options } = this.props
+    const arrFountains = this.props.arrFountains; 
 
     if (typeof window !== 'undefined') {
       return (
@@ -27,16 +28,20 @@ export default class MyMap extends Component {
         style={{
           width: `100%`,
           height: `600px`,
-        }} >
+        }}
+        >
           <TileLayer
           attribution={this.CartoDB_Positron.attribution}
           url={this.CartoDB_Positron.url}
           />
-          <Marker position={position}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
+          {arrFountains.map( fountain =>          
+              <Marker position={fountain.latLong.split(', ')} key={fountain.id}>
+                <Popup>
+                  <span dangerouslySetInnerHTML={{__html: fountain.title}}></span> <br /> Easily customizable.
+                </Popup>
+              </Marker>
+            )
+          }
         </Map>
       )
     }
