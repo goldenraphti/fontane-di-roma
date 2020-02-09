@@ -14,7 +14,7 @@ const ImageFontana = props => (
               relativePath
               name
               childImageSharp {
-                fluid(maxWidth: 600) {
+                fluid(maxHeight: 2000) {
                   ...GatsbyImageSharpFluid
                 }
               }
@@ -32,7 +32,10 @@ const ImageFontana = props => (
       }
 
       //const imageSizes = image.node.childImageSharp.sizes; sizes={imageSizes}
-      return <Img alt={props.alt} fluid={image.node.childImageSharp.fluid} />;
+      return <Img alt={props.alt}
+                   fluid={image.node.childImageSharp.fluid}
+                   style={{ maxHeight: 'calc(100% - 60px)' }}
+                  imgStyle={{ objectFit: 'contain' }} />;
     }}
   />
 );

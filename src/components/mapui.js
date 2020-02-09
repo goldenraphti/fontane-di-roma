@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
+import ImageFontana from '../components/imageFontana'
+import "./mapui.css"
 
 export default class MyMap extends Component {
   state = {
@@ -29,15 +31,32 @@ export default class MyMap extends Component {
           width: `100%`,
           height: `600px`,
         }}
+        onClick={ () => this.props.isOpened && this.props.setIsOpened(false) }
         >
           <TileLayer
           attribution={this.CartoDB_Positron.attribution}
           url={this.CartoDB_Positron.url}
           />
           {arrFountains.map( fountain =>          
-              <Marker position={fountain.latLong.split(', ')} key={fountain.id}>
-                <Popup>
-                  <span dangerouslySetInnerHTML={{__html: fountain.title}}></span> <br /> Easily customizable.
+              <Marker position={fountain.latLong.split(', ')}
+                      key={fountain.id} >
+                <Popup
+                  onOpen={ () => { this.props.onOpenMarker(fountain) } }
+                >
+                  {/* <div key={fountain.id}
+                  
+                    style={{
+                      // width: `80vw`,
+                      // height: `100vw`,
+                      // backgroundColor: `#999`
+                    }} >
+                    <h3 dangerouslySetInnerHTML={{__html: fountain.title}}></h3>
+                    <p dangerouslySetInnerHTML={{__html: fountain.story}}></p>
+                    <div style={{ maxWidth: `200px`,
+                                  maxHeight: `200px`  }}>
+                      <ImageFontana alt={fountain.title} filename={fountain.imgPath} />
+                    </div>
+                  </div> */}
                 </Popup>
               </Marker>
             )
