@@ -1,11 +1,8 @@
 import React, { useState }  from "react"
-import { Link } from "gatsby"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import MapUI from "../components/mapui"
 import EditorSettings from "../../editorSettings/editorSettings.json"
-import { nominalTypeHack, node } from "prop-types"
 import ImageFontana from '../components/imageFontana'
 
 const MapPage = ({ data }) => {

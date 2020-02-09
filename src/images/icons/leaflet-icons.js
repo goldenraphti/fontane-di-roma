@@ -1,4 +1,4 @@
-import L from 'leaflet';
+import L from 'leaflet'
 
 const iconMapPin = new L.Icon({
     iconUrl: require('./map-pin.svg'),
@@ -8,7 +8,7 @@ const iconMapPin = new L.Icon({
     shadowUrl: require('./marker-shadow.png'),
     shadowSize: [29, 40],
     shadowAnchor: [8, 35],
-    iconSize: new L.Point(22, 28),
+    iconSize: [22, 28],
     className: 'leaflet-div-icon'
 });
 
@@ -22,7 +22,7 @@ const iconMapPinOpened = new L.Icon({
     shadowUrl: require('./marker-shadow.png'),
     shadowSize: [29, 40],
     shadowAnchor: [8, 35],
-    iconSize: new L.Point(22, 28),
+    iconSize: [22, 28],
     className: 'leaflet-div-icon'
 });
 
