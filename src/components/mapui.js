@@ -2,6 +2,7 @@ import React, { Component, useState } from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 import ImageFontana from '../components/imageFontana'
 import "./mapui.css"
+import {iconMapPin , iconMapPinOpened} from '../images/icons/leaflet-icons'
 
 export default class MyMap extends Component {
   state = {
@@ -21,7 +22,6 @@ export default class MyMap extends Component {
 
   render() {
     const position = [this.state.lat, this.state.lng]
-    // const { options } = this.props
     const arrFountains = this.props.arrFountains; 
 
     if (typeof window !== 'undefined') {
@@ -39,7 +39,9 @@ export default class MyMap extends Component {
           />
           {arrFountains.map( fountain =>          
               <Marker position={fountain.latLong.split(', ')}
-                      key={fountain.id} >
+                      key={fountain.id}
+                      zIndexOffset={this.props.isOpened && fountain.id === this.props.openedStory.id ? 1000 : 0} 
+                      icon={this.props.isOpened && fountain.id === this.props.openedStory.id ? iconMapPinOpened : iconMapPin} >
                 <Popup
                   onOpen={ () => { this.props.onOpenMarker(fountain) } }
                 >

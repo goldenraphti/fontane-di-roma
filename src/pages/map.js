@@ -15,13 +15,12 @@ const MapPage = ({ data }) => {
   const [openedStory, setOpenedStory] = useState({});
 
   const onOpenMarker = (markersFountain) => {
-    console.log('init onOpenMarker', markersFountain, isOpened, openedStory)
     setIsOpened(true);
     setOpenedStory(markersFountain);
   }
 
   // close the story panel when press Esc
-  document.addEventListener('keyup', () => setIsOpened(false));
+  document.addEventListener('keyup', (e) => e.keyCode === 27 ? setIsOpened(false) : null );
 
   const filterPostsContent = (postContent, title) => {
     const arrCleanedContent = postContent.split('>{')
@@ -45,9 +44,10 @@ const MapPage = ({ data }) => {
         <div key={openedStory.id} 
           style={{
             width: `80%`,
+            maxWidth: `max-content`,
             height: `calc(100% - 60px)`,
             backgroundColor: `#FFF`,
-            zIndex: `800`,
+            zIndex: `1100`,
             position: `fixed`,
             right: `0`,
             bottom: `0`,
@@ -132,6 +132,7 @@ const MapPage = ({ data }) => {
         onOpenMarker = {onOpenMarker}
         isOpened = {isOpened}
         setIsOpened = {setIsOpened}
+        openedStory = {openedStory}
         arrFountains={data.allWordpressPost.edges.filter(({ node }) => ( EditorSettings.fountainsToActivate[filterPostsContent(node.content, node.title).id] === true ) ).map(({ node }) => ( filterPostsContent(node.content, node.title) ) ) }
       />
     </Layout>
