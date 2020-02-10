@@ -17,7 +17,9 @@ const MapPage = ({ data }) => {
   }
 
   // close the story panel when press Esc
-  document.addEventListener('keyup', (e) => e.keyCode === 27 ? setIsOpened(false) : null );
+  if (typeof window !== 'undefined') {
+    document.addEventListener('keyup', (e) => e.keyCode === 27 ? setIsOpened(false) : null );
+  }
 
   const filterPostsContent = (postContent, title) => {
     const arrCleanedContent = postContent.split('>{')
