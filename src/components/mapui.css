@@ -1,5 +1,5 @@
 .leaflet-pane.leaflet-popup-pane {
-  display: none;
+  /* display: none; */
 }
 
 .leaflet-marker-icon,

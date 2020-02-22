@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
-const topRightCategory = [ 'home', 'contact', 'map' ];
+const topRightCategory = [ 'home','about','contact'];
 const listCategories = topRightCategory.map((category) =>
   <li
     style={{
@@ -14,7 +14,9 @@ const listCategories = topRightCategory.map((category) =>
     key={category}
   >
       <Link
-        to={`/${category}`}
+        to={`/${
+            category !== 'home' ? category : ''
+          }`}
         style={{
           color: `#fff`,
         }}>{category}</Link>

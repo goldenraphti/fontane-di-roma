@@ -6,8 +6,8 @@ iconMapPinOpened;
 if (typeof window !== 'undefined') {
     
     iconMapPin = new L.Icon({
-        iconUrl: require('./map-pin.svg'),
-        iconRetinaUrl: require('./map-pin.svg'),
+        iconUrl: require('./map-pin-violet.svg'),
+        iconRetinaUrl: require('./map-pin-violet.svg'),
         iconAnchor: [11, 22],
         popupAnchor: [0, -35],
         shadowUrl: require('./marker-shadow.png'),
@@ -19,8 +19,8 @@ if (typeof window !== 'undefined') {
 
 
     iconMapPinOpened = new L.Icon({
-        iconUrl: require('./map-pin-opened.svg'),
-        iconRetinaUrl: require('./map-pin-opened.svg'),
+        iconUrl: require('./map-pin-violet-opened.svg'),
+        iconRetinaUrl: require('./map-pin-violet-opened.svg'),
         iconAnchor: [11, 22],
         popupAnchor: [0, -35],
         shadowUrl: require('./marker-shadow.png'),

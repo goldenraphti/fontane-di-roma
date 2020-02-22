@@ -34,7 +34,7 @@ const ImageFontana = props => (
       //const imageSizes = image.node.childImageSharp.sizes; sizes={imageSizes}
       return <Img alt={props.alt}
                    fluid={image.node.childImageSharp.fluid}
-                   style={{ maxHeight: 'calc(100% - 60px)' }}
+                   style={{ maxHeight: '100%' }}
                   imgStyle={{ objectFit: 'contain' }} />;
     }}
   />

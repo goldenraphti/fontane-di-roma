@@ -1,0 +1,14 @@
+- when user clicks the pin, it first triggers a small tool-tip, which displays the photo in small + title && excerpt of the story + link to click to "see the full story", which triggers the modal/panel with image & full story
+	- it should close the popup too when ser clicks it
+	- eventually reorganize poop up text with image
+
+- make it all responsive mobile first
+
+- Links are buttons from the map page
+
+- links for logo + to "border less border line" (so must also move the zooming buttons somewhere else)
+
+IN THE FUTURE
+- show user's location (button to trigger the functionality)
+- modal is displayed with transition/animation
+- offer sall panel for list/favorites/new stories/unread
