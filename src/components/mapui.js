@@ -46,8 +46,14 @@ export default class MyMap extends Component {
               <Marker position={fountain.latLong.split(', ')}
                       key={fountain.id}
                       zIndexOffset={this.props.isOpened && fountain.id === this.props.openedStory.id ? 1000 : 0} 
+                      onClick={ () => {
+                        if (this.props.isMobile) {
+                          this.props.onOpenMarker(fountain);
+                          this.setState({isPopupOpened: false});
+                        }
+                      }}
                       icon={ ( this.props.isOpened && fountain.id === this.props.openedStory.id) || (this.state.isPopupOpened && this.state.fountainIdPopupOpened === fountain.id) ? iconMapPinOpened : iconMapPin  } >
-                { (!this.props.isOpened  || (this.props.isOpened && fountain.id !== this.props.openedStory.id)) &&
+                { ( !this.props.isMobile && (!this.props.isOpened  || (this.props.isOpened && fountain.id !== this.props.openedStory.id)))  &&
                   <Popup
                     id={fountain.id}
                     onOpen={ () => {
@@ -80,8 +86,8 @@ export default class MyMap extends Component {
                         overflow: `hidden`,
                         textOverflow: `ellipsis`,
                         display: `-webkit-box`,
-                        webkitBoxOrient: `vertical`,
-                        webkitLineClamp: `3`, /* number of lines to show */
+                        WebkitBoxOrient: `vertical`,
+                        WebkitLineClamp: `3`, /* number of lines to show */
                       }} dangerouslySetInnerHTML={{__html: fountain.story}}></p>
                       <div style={{ height: `auto`,
                                     width: `120px`  }}>
