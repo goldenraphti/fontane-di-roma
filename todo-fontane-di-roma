@@ -1,6 +1,5 @@
 - make it all responsive mobile first
 	- popup from click on marker is just a modal sliding in from bottom, google maps style. When click on it it then display modal taking full screen
-	
 
 - Titles are serif (Playfair display from google font ?) (use typography.js) -> https://alligator.io/gatsbyjs/custom-fonts-in-gatsby/ ; https://www.gatsbyjs.org/docs/typography-js/
 
@@ -12,4 +11,4 @@
 IN THE FUTURE
 - show user's location (button to trigger the functionality)
 - modal is displayed with transition/animation
-- offer sall panel for list/favorites/new stories/unread
+- offer small panel for list/favorites/new stories/unread

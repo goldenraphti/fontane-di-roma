@@ -48,7 +48,7 @@ const MapPage = ({ data }) => {
           isOpened = {isOpened}
           setIsOpened = {setIsOpened}
           openedStory = {openedStory}
-          isMobile= {detectMobile.isMobile}
+          isMobile= {detectMobile.isMobile()}
         />
       }
       <MapUI
@@ -61,7 +61,7 @@ const MapPage = ({ data }) => {
         isOpened = {isOpened}
         setIsOpened = {setIsOpened}
         openedStory = {openedStory}
-        isMobile= {detectMobile.isMobile}
+        isMobile= {detectMobile.isMobile()}
         arrFountains={data.allWordpressPost.edges.filter(({ node }) => ( EditorSettings.fountainsToActivate[filterPostsContent(node.content, node.title).id] === true ) ).map(({ node }) => ( filterPostsContent(node.content, node.title) ) ) }
       />
     </Layout>
