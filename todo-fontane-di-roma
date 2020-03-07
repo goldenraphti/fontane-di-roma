@@ -1,8 +1,6 @@
 - make it all responsive mobile first
 	- popup from click on marker is just a modal sliding in from bottom, google maps style. When click on it it then display modal taking full screen
 
-- Titles are serif (Playfair display from google font ?) (use typography.js) -> https://alligator.io/gatsbyjs/custom-fonts-in-gatsby/ ; https://www.gatsbyjs.org/docs/typography-js/
-
 - Links are buttons from the map page
 	- create a logo for "Fontane di Roma"
 	- links for logo + to "border less border line" (so must also move the zooming buttons somewhere else)

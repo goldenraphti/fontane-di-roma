@@ -99,7 +99,9 @@ const PanelStory = props => {
         overflowX: `scroll`
       }}>
         <h3 dangerouslySetInnerHTML={{__html: openedStory.title}}
-            style={{ textAlign: `center`
+            style={{
+              textAlign: `center`,
+              fontSize: `1.6em`
             }}></h3>
         <p dangerouslySetInnerHTML={{__html: openedStory.story}}
             style={{ fontSize: `14px`,

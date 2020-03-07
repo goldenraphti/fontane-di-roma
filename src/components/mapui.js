@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
-import "./mapui.css"
+import "../styles/mapui.css"
 import {iconMapPin , iconMapPinOpened} from '../images/icons/leaflet-icons'
 import ImageFontana from '../components/imageFontana'
 
