@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
+import { Map, ZoomControl, TileLayer, Marker, Popup } from 'react-leaflet'
 import "../styles/mapui.css"
 import {iconMapPin , iconMapPinOpened} from '../images/icons/leaflet-icons'
 import ImageFontana from '../components/imageFontana'
@@ -31,13 +31,16 @@ export default class MyMap extends Component {
 
     if (typeof window !== 'undefined') {
       return (
-        <Map center={position} zoom={this.state.zoom} 
-        style={{
-          width: `100%`,
-          height: `${window.innerHeight}px`,
-        }}
-        onClick={ () => this.props.isOpened && this.props.setIsOpened(false) }
+        <Map center={position}
+          zoom={this.state.zoom}
+          zoomControl={false}
+          style={{
+            width: `100%`,
+            height: `${window.innerHeight}px`,
+          }}
+          onClick={ () => this.props.isOpened && this.props.setIsOpened(false) }
         >
+          <ZoomControl position="bottomright" />
           <TileLayer
           attribution={this.CartoDB_Positron.attribution}
           url={this.CartoDB_Positron.url}
