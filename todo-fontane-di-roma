@@ -1,10 +1,9 @@
-- make it all responsive mobile first
-	- popup from click on marker is just a modal sliding in from bottom, google maps style. When click on it it then display modal taking full screen
-
 - Links are buttons from the map page
 	- create a logo for "Fontane di Roma"
 	- links for logo + to "border less border line" (so must also move the zooming buttons somewhere else)
 	- write content (text) for contact & about pages/modal
+
+what should be done for panel on tablet, bottom or side panel ? (when portrait / landscape ?)
 
 IN THE FUTURE
 - show user's location (button to trigger the functionality)

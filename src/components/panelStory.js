@@ -32,7 +32,7 @@ const PanelStory = props => {
         boxShadow: isMobile ? `0px -2px 4px rgba(0, 0, 0, 0.25)` : `-2px 4px 4px rgba(0, 0, 0, 0.25)`,
         borderRadius: isMobile ? `10px 10px 0 0 `: `10px 0px 0px 10px`,
         transition: `all 0.3s cubic-bezier(0.27, 0.01, 0.36, 1) 0s`,
-        overflowY: isMobile ? `scroll` : `hidden`,
+        overflowY: isMobile && isExpanded ? `scroll` : `hidden`,
         cursor: !isMobile || isExpanded ? `unset`: `pointer`,
       }}
       // to simulate a drag up expanding the panel on mobile
