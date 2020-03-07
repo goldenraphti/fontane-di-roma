@@ -24,12 +24,15 @@ const PanelStory = props => {
         right: `0`,
         bottom: `0`,
         display: `flex`,
-        justifyContent: `space-between`,
-        alignItems: `flex-start`,
+        flexDirection: isMobile ? `column`:`row`,
+        justifyContent: isMobile ? `flex-start` : `space-between`,
+        alignItems: isMobile ? `center` :  `flex-start`,
         padding: `25px`,
+        paddingTop: isMobile ? `5px` : '25px',
         boxShadow: isMobile ? `0px -2px 4px rgba(0, 0, 0, 0.25)` : `-2px 4px 4px rgba(0, 0, 0, 0.25)`,
         borderRadius: isMobile ? `10px 10px 0 0 `: `10px 0px 0px 10px`,
-        transition: `all 0.3s cubic-bezier(0.27, 0.01, 0.36, 1) 0s`
+        transition: `all 0.3s cubic-bezier(0.27, 0.01, 0.36, 1) 0s`,
+        overflowY: isMobile ? `scroll` : `hidden`,
       }} >
         {/* Close button for non-mobile */}
         { !isMobile &&
@@ -60,7 +63,6 @@ const PanelStory = props => {
             </button>
           </div>
         }
-        {/* TODO: To expend/collapse button-divider for mobile */}
         {isMobile &&
           <button style={{
             backgroundColor: `transparent`,
@@ -74,10 +76,20 @@ const PanelStory = props => {
           }}></div></button>
 
         }
+      {/* MOBILE story title */}
+      { isMobile &&
+        <h3 dangerouslySetInnerHTML={{__html: openedStory.title}}
+          style={{
+            textAlign: `center`,
+            fontSize: `1.6em`,
+            marginTop: `5px`,
+            marginBottom: `5px`,
+          }}></h3>}
       {/* Photo */}
       <div className='story-panel photo-side'
         style={{ flex: `1`,
-          height: `100%`,
+          width: isMobile ? `100%` : `auto`,
+          height: isMobile ? `auto` : `100%`,
           display: `flex`,
           flexDirection: `column`,
           justifyContent: `center`,
@@ -96,22 +108,27 @@ const PanelStory = props => {
         justifyContent: `flex-start`,
         margin: `2em 0.5em`,
         maxHeight: `calc(100% - 60px)`,
-        overflowX: `scroll`
+        overflowX: isMobile ? `unset` : `scroll`
       }}>
-        <h3 dangerouslySetInnerHTML={{__html: openedStory.title}}
+        {/* DESKTOP story title */}
+        { !isMobile &&
+          <h3 dangerouslySetInnerHTML={{__html: openedStory.title}}
             style={{
               textAlign: `center`,
               fontSize: `1.6em`
-            }}></h3>
+            }}></h3>}
+        {/* story text */}
         <p dangerouslySetInnerHTML={{__html: openedStory.story}}
             style={{ fontSize: `14px`,
                       paddingBottom: `80px`}}>
         </p>
-        <div style={{ background: `linear-gradient(180deg, rgba(255, 255, 255, 0) -20.75%, #FFFFFF 71.7%`,
+        {/* white gradient */}
+        { !isMobile &&
+          <div style={{ background: `linear-gradient(180deg, rgba(255, 255, 255, 0) -20.75%, #FFFFFF 71.7%`,
                         minHeight: `150px`,
                         position: `absolute`,
                         bottom: `0`,
-                        minWidth: `calc( (( 100% - 50px) / 2) - (2em))`}}></div>
+                        minWidth: `calc( (( 100% - 50px) / 2) - (2em))`}}></div>}
       </div>
     </div>
   )
