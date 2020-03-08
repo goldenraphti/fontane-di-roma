@@ -72,11 +72,36 @@ const PanelStory = props => {
             padding: `10px`,
             cursor: `pointer`,
             border: `none`
-          }} onClick={() => setIsExpanded(!isExpanded)}><div style={{
-            height: `2px`,
-            width: `50px`,
-            backgroundColor: `#CCC`
-          }}></div></button>
+          }} onClick={() => setIsExpanded(!isExpanded)}>
+            {/* gray horizontal line */}
+            {/* <div style={{
+              height: `2px`,
+              width: `50px`,
+              backgroundColor: `#CCC`
+            }}></div> */}
+            {/* chevron icon */}
+            <div>
+              <span style={{
+                position: `relative`,
+                display: `block`,
+                height: `2px`,
+                width: `50px`,
+                backgroundColor: `#CCC`,
+                transform: isExpanded ? `rotate(-8deg)` : `rotate(8deg)`,
+                left: `24px`,
+                top: `2px`,
+              }} />
+              <span style={{
+                position: `relative`,
+                display: `block`,
+                height: `2px`,
+                width: `50px`,
+                backgroundColor: `#CCC`,
+                transform: isExpanded ? `rotate(8deg)` : `rotate(-8deg)`,
+                left: `-24px`,
+              }} />
+            </div>
+          </button>
 
         }
       {/* MOBILE story title */}

@@ -1,15 +1,15 @@
+- on landscape & table, fix style panel. Maybe when ladnscape, no matter if mobile && tablet, do sidePanel instead of bottom 
+
 - Links are buttons from the map page
 	- create a logo for "Fontane di Roma"
 	- links for logo + to "border less border line" (so must also move the zooming buttons somewhere else)
 	- write content (text) for contact & about pages/modal
 
-- change buttom icon to an arrow until draggable, an dthen change back to google-map style horizontal gray line
-- mobile bottom panel should be draggable by touch (https://www.npmjs.com/package/react-draggable)
-- on landscape & table, fix style panel. Maybe when ladnscape, no matter if mobile && tablet, do sidePanel instead of bottom 
 
 what should be done for panel on tablet, bottom or side panel ? (when portrait / landscape ?)
 
 IN THE FUTURE
+- mobile bottom panel should be draggable by touch (react-user-gesture + react-spring)
 - show user's location (button to trigger the functionality)
 - modal is displayed with transition/animation
 - offer small panel for list/favorites/new stories/unread
