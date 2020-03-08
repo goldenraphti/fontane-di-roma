@@ -13,18 +13,16 @@ export default ({ data }) => (
     }}>
       <h1 style={{
         marginTop: `30px`,
-      }}>Contact</h1>
+      }}>About</h1>
       <div>
-        <h2>Credits</h2>
-        <p>An artistic project made by <a href="https://eff.org">"Border Less Border Line</a></p>
-        <p>All texts are written by Laura Camacho</p>
-        <p>All photos && Web Dev made by Raphael Ferrand</p>
-        <h3>External credits</h3>
-        <p>React, Gatsby, Babel, Webpack, Wordpress, Internet, EFF, Firefox, Visual Studio, Linux Ubuntu, ...</p>
-        <p>Photo from page 404 by David Kovalenko on Unsplash</p>
+        <p>
+          "Fontane di Roma" is an artistic project made by "Border Less Border Line",
+           with the idea of mixing together several forms of art: photography, litterature,
+            cartography and web development.
+  
+          
+        </p>
       </div>
-
-      <Link to="/">Go back to the homepage</Link>
     </div>
   </Layout>
 )

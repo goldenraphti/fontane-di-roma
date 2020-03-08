@@ -6,7 +6,7 @@ const topRightCategory = [ 'home','about','contact'];
 const listCategories = topRightCategory.map((category) =>
   <li
     style={{
-      marginLeft: '40px',
+      marginLeft: (typeof window !== 'undefined') && window.innerWidth < 900 ? `15px` : '40px',
       marginBottom: 0,
       fontSize: `16px`,
       lineHeight: `0`,
@@ -37,7 +37,7 @@ const Header = ({ siteTitle }) => (
       style={{
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'baseline',
+        alignItems: (typeof window !== 'undefined') && window.innerWidth < 900 ? 'center' : 'baseline',
         margin: `0 auto`,
         width: `100%`,
         maxWidth: 960,
@@ -54,7 +54,7 @@ const Header = ({ siteTitle }) => (
             color: `white`,
             textDecoration: `none`,
             fontSize: `20px`,
-            lineHeight: 0,
+            lineHeight: `1em`,
           }}
         >
           {siteTitle}

@@ -19,7 +19,7 @@ const MapPage = ({ data }) => {
     setOpenedStory(markersFountain);
   }
 
-  const isPortrait = window.innerHeight > window.innerWidth;
+  const isPortrait = (typeof window !== 'undefined') && (window.innerHeight > window.innerWidth);
   const isBottomPanel = detectMobile.isMobile() && isPortrait;
 
   // close the story panel when press Esc
