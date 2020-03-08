@@ -9,36 +9,36 @@ const PanelStory = props => {
   const isOpened = props.isOpened;
   const setIsOpened = props.setIsOpened;
   const openedStory = props.openedStory;
-  const isMobile= props.isMobile;
+  const isBottomPanel= props.isBottomPanel;
       
 
   return (
     <div key={openedStory.id} 
       style={{
-        width: isMobile ? `100%`:`80%`,
-        maxWidth: `max-content`,
-        height:  isMobile ? (isExpanded ? `100%` : `20%`):`100%`,
+        width: isBottomPanel ? `100%`:`80%`,
+        maxWidth: isBottomPanel ? `unset` : `max-content`,
+        height:  isBottomPanel ? (isExpanded ? `100%` : `20%`):`100%`,
         backgroundColor: `#FFF`,
         zIndex: `1100`,
         position: `fixed`,
         right: `0`,
         bottom: `0`,
         display: `flex`,
-        flexDirection: isMobile ? `column`:`row`,
-        justifyContent: isMobile ? `flex-start` : `space-between`,
-        alignItems: isMobile ? `center` :  `flex-start`,
+        flexDirection: isBottomPanel ? `column`:`row`,
+        justifyContent: isBottomPanel ? `flex-start` : `space-between`,
+        alignItems: isBottomPanel ? `center` :  `flex-start`,
         padding: `25px`,
-        paddingTop: isMobile ? `5px` : '25px',
-        boxShadow: isMobile ? `0px -2px 4px rgba(0, 0, 0, 0.25)` : `-2px 4px 4px rgba(0, 0, 0, 0.25)`,
-        borderRadius: isMobile ? `10px 10px 0 0 `: `10px 0px 0px 10px`,
+        paddingTop: isBottomPanel ? `5px` : '25px',
+        boxShadow: isBottomPanel ? `0px -2px 4px rgba(0, 0, 0, 0.25)` : `-2px 4px 4px rgba(0, 0, 0, 0.25)`,
+        borderRadius: isBottomPanel ? `10px 10px 0 0 `: `10px 0px 0px 10px`,
         transition: `all 0.3s cubic-bezier(0.27, 0.01, 0.36, 1) 0s`,
-        overflowY: isMobile && isExpanded ? `scroll` : `hidden`,
-        cursor: !isMobile || isExpanded ? `unset`: `pointer`,
+        overflowY: isBottomPanel && isExpanded ? `scroll` : `hidden`,
+        cursor: !isBottomPanel || isExpanded ? `unset`: `pointer`,
       }}
       // to simulate a drag up expanding the panel on mobile
-      onClick={() => isMobile && !isExpanded ? setIsExpanded(!isExpanded) : null} >
+      onClick={() => isBottomPanel && !isExpanded ? setIsExpanded(!isExpanded) : null} >
         {/* Close button for non-mobile */}
-        { !isMobile &&
+        { !isBottomPanel &&
           <div style={{
             position: `absolute`,
             top: `15px`,
@@ -66,7 +66,7 @@ const PanelStory = props => {
             </button>
           </div>
         }
-        {isMobile &&
+        {isBottomPanel &&
           <button style={{
             backgroundColor: `transparent`,
             padding: `10px`,
@@ -105,7 +105,7 @@ const PanelStory = props => {
 
         }
       {/* MOBILE story title */}
-      { isMobile &&
+      { isBottomPanel &&
         <h3 dangerouslySetInnerHTML={{__html: openedStory.title}}
           style={{
             textAlign: `center`,
@@ -116,8 +116,8 @@ const PanelStory = props => {
       {/* Photo */}
       <div className='story-panel photo-side'
         style={{ flex: `1`,
-          width: isMobile ? `100%` : `auto`,
-          height: isMobile ? `auto` : `100%`,
+          width: isBottomPanel ? `100%` : `auto`,
+          height: isBottomPanel ? `auto` : `100%`,
           display: `flex`,
           flexDirection: `column`,
           justifyContent: `center`,
@@ -136,10 +136,10 @@ const PanelStory = props => {
         justifyContent: `flex-start`,
         margin: `2em 0.5em`,
         maxHeight: `calc(100% - 60px)`,
-        overflowX: isMobile ? `unset` : `scroll`
+        overflowY: isBottomPanel ? `unset` : `auto`
       }}>
         {/* DESKTOP story title */}
-        { !isMobile &&
+        { !isBottomPanel &&
           <h3 dangerouslySetInnerHTML={{__html: openedStory.title}}
             style={{
               textAlign: `center`,
@@ -151,7 +151,7 @@ const PanelStory = props => {
                       paddingBottom: `80px`}}>
         </p>
         {/* white gradient */}
-        { !isMobile &&
+        { !isBottomPanel &&
           <div style={{ background: `linear-gradient(180deg, rgba(255, 255, 255, 0) -20.75%, #FFFFFF 71.7%`,
                         minHeight: `150px`,
                         position: `absolute`,

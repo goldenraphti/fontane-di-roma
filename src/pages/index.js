@@ -19,6 +19,9 @@ const MapPage = ({ data }) => {
     setOpenedStory(markersFountain);
   }
 
+  const isPortrait = window.innerHeight > window.innerWidth;
+  const isBottomPanel = detectMobile.isMobile() && isPortrait;
+
   // close the story panel when press Esc
   if (typeof window !== 'undefined') {
     document.addEventListener('keyup', (e) => e.keyCode === 27 ? setIsOpened(false) : null );
@@ -48,7 +51,7 @@ const MapPage = ({ data }) => {
           isOpened = {isOpened}
           setIsOpened = {setIsOpened}
           openedStory = {openedStory}
-          isMobile= {detectMobile.isMobile()}
+          isBottomPanel= {isBottomPanel}
         />
       }
       <MapUI
