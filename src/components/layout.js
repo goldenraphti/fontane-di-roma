@@ -10,7 +10,8 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "../styles/normalize.css"
+
+import "../styles/main.css"
 import "../styles/typography.css"
 import "../styles/layout.css"
 
@@ -41,10 +42,7 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <footer
-          style={{
-            display:'none',
-          }}
+        <footer className={`hidden`}
         >
           © {new Date().getFullYear()}, Built by
           {` `}

@@ -3,7 +3,6 @@
 	- links for logo + to "border less border line" (so must also move the zooming buttons somewhere else)
 	- links to About/Contact
 
-- add Tailwind css + purgeCSS + remove hacky responsive styles
 - test browser support
 - test A11y
 - test web perf
