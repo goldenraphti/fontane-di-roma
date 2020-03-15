@@ -10,9 +10,9 @@
     "ID8": true,
     "ID9": true,
     "ID10": true,
-    "ID11": false,
-    "ID12": false,
-    "ID13": false,
+    "ID11": true,
+    "ID12": true,
+    "ID13": true,
     "ID14": false,
     "ID15": false,
     "ID16": false,
@@ -22,6 +22,8 @@
     "ID20": false
   },
   "featureToggle":{
-    "fountainsBottomList": false
+    "fountainsBottomList": false,
+    "fountainsAlreadySeenList": false,
+    "fountainsFavouriteList": false
   }
 }
