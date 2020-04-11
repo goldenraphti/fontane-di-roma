@@ -26,7 +26,7 @@ const MapPage = ({ data }) => {
   if (typeof window !== 'undefined') {
     document.addEventListener('keyup', (e) => e.keyCode === 27 ? setIsOpened(false) : null );
   }
-  
+
   const regex = /^(\-?\d+(\.\d+)?),\s*(\-?\d+(\.\d+)?)$/gm;
 
   const filterPostsContent = (postContent, title) => {
@@ -41,7 +41,7 @@ const MapPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Dev" />
       <h1
         style={{
           display: 'none',
@@ -67,7 +67,7 @@ const MapPage = ({ data }) => {
         setIsOpened = {setIsOpened}
         openedStory = {openedStory}
         isMobile= {detectMobile.isMobile()}
-        arrFountains={data.allWordpressPost.edges.filter(({ node }) => ( EditorSettings.fountainsToActivate[filterPostsContent(node.content, node.title).id] === true && regex.test(filterPostsContent(node.content, node.title).latLong) ) ).map(({ node }) => ( filterPostsContent(node.content, node.title) ) ) }
+        arrFountains={data.allWordpressPost.edges.filter(({ node }) => ( regex.test(filterPostsContent(node.content, node.title).latLong) ) ).map(({ node }) => ( filterPostsContent(node.content, node.title) ) ) }
       />
     </Layout>
   )
