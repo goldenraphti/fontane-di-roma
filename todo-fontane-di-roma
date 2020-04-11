@@ -4,8 +4,6 @@
 	- links to About/Contact
 
 - test browser support
-- test A11y
-- test web perf
 - clean build errors
 - clean GraphQL
 - build nice 404

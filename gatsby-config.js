@@ -69,8 +69,19 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Source Sans Pro', 'Playfair Display:900']
+          families: ['Source Sans Pro&display=swap', 'Playfair Display:900&display=swap']
         }
+      }
+    },
+    {
+      resolve: "gatsby-plugin-preconnect",
+      options: {
+        domains: [
+          "https://fonts.googleapis.com",
+          "https://a.basemaps.cartocdn.com",
+          "https://b.basemaps.cartocdn.com",
+          "https://c.basemaps.cartocdn.com",
+        ]
       }
     },
     `gatsby-plugin-postcss`,
