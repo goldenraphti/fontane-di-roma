@@ -39,7 +39,7 @@ const MapPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Contact" />
+      <SEO title="Home" />
       <h1
         style={{
           display: 'none',
