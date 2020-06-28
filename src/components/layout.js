@@ -27,10 +27,12 @@ const Layout = ({ children }) => {
   `)
 
   const isMapPage = children.some( child => child.key === 'MapUI');
+  const isHomePage = children.some( child => child.key === 'Home');
+  
 
   return (
     <>
-    { !isMapPage &&
+    { ( !isHomePage || !isMapPage) &&
       <Header siteTitle={data.site.siteMetadata.title} />
     }
       <div
