@@ -36,12 +36,7 @@ const HomePage = ({ data }) => {
           {arrFountains.map((fountain, index) =>
             <li key={fountain.id} className=''>
               <Link to={`/mapPage?${fountain.id}`}>
-                <div style={{
-                  height: `30vh`,
-                  width: `calc(30vh / 1.497)`
-                }}>
-                  <ImageFontana alt={fountain.title} filename={fountain.imgPath} />
-                </div>
+                <ImageFontana alt={fountain.title} filename={fountain.imgPath} />
               </Link>
             </li>
           )}

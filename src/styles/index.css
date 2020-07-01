@@ -1,13 +1,18 @@
 ul.grid-with-central-card {
+    --height-photos: 31vh;
+
     display: grid;
     justify-content: center;
-    grid-template-rows: 30vh;
-    grid-template-columns: repeat(auto-fill, calc(30vh / 1.497));
+    grid-template-rows: var(--height-photos);
+    grid-template-columns: repeat(auto-fill, calc( var(--height-photos) / 1.497));
     gap: 20px;
+    margin: 20px;
 }
 
 ul.grid-with-central-card li {
 }
 
 ul.grid-with-central-card li.central-card {
+    grid-row: 2 / span 1;
+    grid-column: 2 / span 3;
 }
