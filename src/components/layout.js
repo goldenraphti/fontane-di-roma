@@ -28,28 +28,27 @@ const Layout = ({ children }) => {
 
   const isMapPage = children.some( child => child.key === 'MapUI');
   const isHomePage = children.some( child => child.key === 'Home');
-  
 
   return (
     <>
-    { ( !isHomePage || !isMapPage) &&
-      <Header siteTitle={data.site.siteMetadata.title} />
-    }
       <div
         style={{
           margin: `0 auto`,
-          maxWidth: isMapPage ? `100%` : 960,
           padding: isMapPage ? '0' : `0px 1.0875rem 1.45rem`,
           paddingTop: 0,
+          minHeight: '100vh',
         }}
-      >
-        <main>{children}</main>
-        <footer className={`hidden`}
+        className='flex flex-col justify-between'
         >
-          © {new Date().getFullYear()}, Built by
-          {` `}
-          {/* TODO: replace by Border Less Border Line email */}
-          <a href="https://www.gatsbyjs.org">Border Less, Border Line</a>
+        { ( !isHomePage && !isMapPage) &&
+          <Header siteTitle={data.site.siteMetadata.title} />
+        }
+        <main>{children}</main>
+        <footer className='flex justify-center mt-10'
+        >
+          {/* TODO: replace by Border Less Border Line email/website */}
+          <a href="https://www.gatsbyjs.org" className="text-gray-900">Border Less Border Line </a>
+          - © {new Date().getFullYear()}
         </footer>
       </div>
     </>
