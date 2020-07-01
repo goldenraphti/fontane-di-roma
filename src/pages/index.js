@@ -54,7 +54,6 @@ const HomePage = ({ data }) => {
 
 export default HomePage
 
-
 HomePage.propTypes = {
   data: PropTypes.object.isRequired
 }

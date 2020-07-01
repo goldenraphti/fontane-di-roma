@@ -5,6 +5,7 @@ import MapUI from "../components/mapui"
 import EditorSettings from "../../editorSettings/editorSettings.json"
 import PanelStory from '../components/panelStory'
 import useMobileDetect from 'use-mobile-detect-hook'
+import PropTypes from 'prop-types'
 
 const MapPage = ({ data }) => {
 
@@ -92,3 +93,7 @@ export const pageQuery = graphql`
     }
   }
 `
+
+MapPage.propTypes = {
+  data: PropTypes.object.isRequired
+}
