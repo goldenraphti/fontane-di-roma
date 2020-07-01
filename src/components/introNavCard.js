@@ -6,7 +6,12 @@ const IntroNavCard = (props) => {
     const navigationArr = [{ link: '/mapPage', text: 'Travel by Map' }, { link: '/photosGridPage', text: 'Travel by Photo' }, { link: '/storiesGridPage', text: 'Travel by Stories' }];
 
     return (
-        <li className='central-card flex bg-white p-8 flex-col justify-between '>
+        <li
+            style={{
+                '--span':props.spanWidth,
+                '--col-start':props.columnStart,
+            }}
+            className='central-card flex bg-white p-8 flex-col justify-between '>
             <div>
                 <h1 className='mb-2 text-3xl text-center'>Fontane di Roma</h1>
                 <p>Explore Roma through photography cartography and short stories.
