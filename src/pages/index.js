@@ -29,9 +29,12 @@ const HomePage = ({ data }) => {
     <Layout>
       <SEO title="Home" />
       <div key="Home" className='flex flex-col justify-start items-stretch'>
-        <ul className={`flex flex-wrap justify-between`}>
+        <ul className={`grid-with-central-card`}>
+          <IntroNavCard
+            key='introNavCard'
+          />
           {arrFountains.map((fountain, index) =>
-            <li key={fountain.id} className='m-4'>
+            <li key={fountain.id} className=''>
               <Link to={`/mapPage?${fountain.id}`}>
                 <div style={{
                   height: `30vh`,
@@ -42,10 +45,6 @@ const HomePage = ({ data }) => {
               </Link>
             </li>
           )}
-          <IntroNavCard
-            key='introNavCard'
-            top={heightCardNoMargin + margin}
-          />
         </ul>
       </div>
     </Layout>

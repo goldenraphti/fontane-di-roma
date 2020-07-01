@@ -1,0 +1,13 @@
+ul.grid-with-central-card {
+    display: grid;
+    justify-content: center;
+    grid-template-rows: 30vh;
+    grid-template-columns: repeat(auto-fill, calc(30vh / 1.497));
+    gap: 20px;
+}
+
+ul.grid-with-central-card li {
+}
+
+ul.grid-with-central-card li.central-card {
+}
