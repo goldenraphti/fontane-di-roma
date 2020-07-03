@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react"
-import { Link } from "gatsby"
+import React, { useState, useEffect, useRef } from "react"
+import { graphql , Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import EditorSettings from "../../editorSettings/editorSettings.json"
@@ -12,50 +12,49 @@ const HomePage = ({ data }) => {
 
   const arrFountains = filterPosts(data, EditorSettings);
 
-  
-  const [spanWidth, setSpanWidth] = useState(3);
-  const [columnStart, setColumnStart] = useState(2);
-  
-  const hundredVW = () => document.documentElement.clientWidth; // correct
-  const widthContainer = () => hundredVW() - (((1.0875 * 16) * 2) + (20 * 2)); //correct
-  const hundredVH = () => window.innerHeight; // correct
-  const heightCardNoMargin = () => hundredVH() * 0.3; //FIXME: 
-  const margin = () => 2 * 10;
-  const widthCardWithMargin = () => heightCardNoMargin() / 1.5 + margin();
-  const amountCardsPerRow = () => Number((widthContainer() / widthCardWithMargin()).toFixed());
-  const amountCardsRemainingAroundIntro = () => amountCardsPerRow() >= 5 ? amountCardsPerRow() - 3 : 0;
-  const areRemainingCardsEvenNumber = () =>amountCardsRemainingAroundIntro() % 2 === 0 ? true : false;
+  const [gridColumn, setGridColumn] = useState( '1 / -1');
 
+  const refFive = useRef(null);
+  const refSeven = useRef(null);
+  
   useEffect(() => {
-    // FIXME: calculations are slightly off
-    const placeAndSizeIntroCard = () => {
-      console.log('start', 'hundredVW', hundredVW(), 'hundredVH', hundredVH(), 'amountCardsPerRow', amountCardsPerRow(), 'margin', margin(), 'widthContainer', widthContainer(), 'heightCardNoMargin', heightCardNoMargin());
-      
-      if(amountCardsPerRow() < 5 ) {
-        setColumnStart(1);
-        setSpanWidth(amountCardsPerRow());
-      } else if ( (amountCardsPerRow() > 5) && !areRemainingCardsEvenNumber()) {
-        setColumnStart(1 + Math.floor(amountCardsRemainingAroundIntro() / 2));
-        setSpanWidth(4);
-      } else if ((amountCardsPerRow() > 5) && areRemainingCardsEvenNumber()) {
-        setColumnStart(1 + Math.floor(amountCardsRemainingAroundIntro() / 2));
-        setSpanWidth(3);
-      }
-      console.log('end');
-    };
-    window.addEventListener('resize', placeAndSizeIntroCard);
-  });
+    const aboveSevenAndHeightCards = () => document.documentElement.clientWidth > refSeven.current.offsetWidth;
+    const setForSevenAndHeightCards = () =>  setGridColumn(' 3 / -3');
+    const aboveFiveAndSixCards = () => document.documentElement.clientWidth > refFive.current.offsetWidth;
+    const setForFiveAndSixCards = () =>  setGridColumn(' 2 / -2');
+    const belowFiveCards = () => document.documentElement.clientWidth < refFive.current.offsetWidth;
+    const setForBelowFiveCards = () => setGridColumn(' 1 / -1');
+    
 
-  
+    const placeIntroCard = () => {
+      if (aboveSevenAndHeightCards()) {
+        setForSevenAndHeightCards();
+      } else if (aboveFiveAndSixCards()) {
+        setForFiveAndSixCards();
+      } else if (belowFiveCards()) {
+        setForBelowFiveCards();
+      }
+    }
+
+    placeIntroCard();
+    window.addEventListener('resize', placeIntroCard);
+  }, [refFive.current, refSeven.current]);
+
   return (
     <Layout>
       <SEO title="Home" />
+
+      {/* used to place the intro card */}
+      <div>
+        <div className='five-cards' ref={refFive}></div>
+        <div className='seven-cards' ref={refSeven}></div>
+      </div>
+
       <div key="Home" className='flex flex-col justify-start items-stretch'>
         <ul className={`grid-with-central-card`}>
           <IntroNavCard
             key='introNavCard'
-            spanWidth={spanWidth}
-            columnStart={columnStart}
+            gridColumn={gridColumn}
           />
           {arrFountains.map((fountain, index) =>
             <li key={fountain.id} className=''>

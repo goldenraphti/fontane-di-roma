@@ -1,8 +1,7 @@
+
 ul.grid-with-central-card {
     --height-photos: 30vh;
-    --number-columns: 5;
-    --span: 3;
-    --col-start: 2;
+    --grid-col:  start / end;
     
     display: grid;
     justify-content: center;
@@ -12,10 +11,29 @@ ul.grid-with-central-card {
     margin: 20px;
 }
 
-ul.grid-with-central-card li {
-}
-
 ul.grid-with-central-card li.central-card {
     grid-row: 2 / span 1;
-    grid-column: var(--col-start) / span var(--span);
+    grid-column: var(--grid-col);
 }
+
+/* used to place the intro card among the grid */
+
+:root {
+    --height-photos: 30vh;
+    --number-columns: 5;
+    --outer-padding: calc( 2 * 1.0875rem );
+    --margin-around-grid: calc( 2 * 20px);
+    --space-around-grid: calc( var(--margin-around-grid) + var(--outer-padding) );
+    --width-card-with-margin: calc( (30vh / 1.5) + ( 2 * 10px) );
+    --non-existant-gap-around-grid: calc( 2 * 20px);
+    --five-cards-width-with-gaps: calc( 5 * var(--width-card-with-margin) );
+}
+
+.five-cards {
+    width:  calc( ( 5 * var(--width-card-with-margin ) + var(--space-around-grid)) );
+}
+.seven-cards {
+    width:  calc( ( 7 * var(--width-card-with-margin ) + var(--space-around-grid)) );
+}
+
+/* and of the trick to place the intro card among the grid */

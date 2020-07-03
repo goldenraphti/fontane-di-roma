@@ -8,8 +8,7 @@ const IntroNavCard = (props) => {
     return (
         <li
             style={{
-                '--span':props.spanWidth,
-                '--col-start':props.columnStart,
+                '--grid-col':props.gridColumn,
             }}
             className='central-card flex bg-white p-8 flex-col justify-between '>
             <div>
