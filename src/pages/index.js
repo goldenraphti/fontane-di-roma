@@ -12,27 +12,50 @@ const HomePage = ({ data }) => {
 
   const arrFountains = filterPosts(data, EditorSettings);
 
-  const [gridColumn, setGridColumn] = useState( '1 / -1');
+  const [gridColumn, setGridColumn] = useState( '2 / -2');
+  const [heightIntroCard, setHeightIntroCard] = useState( '1');
+  const [cardsPerRow, setCardsPerRow] = useState(3);
 
+  const refThree = useRef(null);
+  const refFour = useRef(null);
   const refFive = useRef(null);
   const refSeven = useRef(null);
   
   useEffect(() => {
     const aboveSevenAndHeightCards = () => document.documentElement.clientWidth > refSeven.current.offsetWidth;
-    const setForSevenAndHeightCards = () =>  setGridColumn(' 3 / -3');
-    const aboveFiveAndSixCards = () => document.documentElement.clientWidth > refFive.current.offsetWidth;
-    const setForFiveAndSixCards = () =>  setGridColumn(' 2 / -2');
-    const belowFiveCards = () => document.documentElement.clientWidth < refFive.current.offsetWidth;
-    const setForBelowFiveCards = () => setGridColumn(' 1 / -1');
+    const setForSevenAndHeightCards = () =>  {
+      setGridColumn(' 3 / -3');
+      setHeightIntroCard('1');
+      setCardsPerRow(7);
+    }
+    const aboveFourCards = () => document.documentElement.clientWidth > refFour.current.offsetWidth;
+    const setForFourFiveAndSixCards = () =>  {
+      setGridColumn(' 2 / -2');
+      setHeightIntroCard('1');
+      setCardsPerRow(5);
+    }
+    const aboveThreeCards = () => document.documentElement.clientWidth > refThree.current.offsetWidth;
+    const setForAboveThreeCards = () => {
+      setGridColumn(' 2 / -2');
+      setHeightIntroCard('2');
+      setCardsPerRow(3);
+    }
+    const setForBelowThreeCards = () => {
+      setGridColumn(' 1 / -1');
+      setHeightIntroCard('1');
+      setCardsPerRow(2);
+    }
     
 
     const placeIntroCard = () => {
       if (aboveSevenAndHeightCards()) {
         setForSevenAndHeightCards();
-      } else if (aboveFiveAndSixCards()) {
-        setForFiveAndSixCards();
-      } else if (belowFiveCards()) {
-        setForBelowFiveCards();
+      } else if (aboveFourCards()) {
+        setForFourFiveAndSixCards();
+      } else if (aboveThreeCards()) {
+        setForAboveThreeCards();
+      } else {
+        setForBelowThreeCards();
       }
     }
 
@@ -46,15 +69,19 @@ const HomePage = ({ data }) => {
 
       {/* used to place the intro card */}
       <div>
+        <div className='three-cards' ref={refThree}></div>
+        <div className='four-cards' ref={refFour}></div>
         <div className='five-cards' ref={refFive}></div>
         <div className='seven-cards' ref={refSeven}></div>
       </div>
 
       <div key="Home" className='flex flex-col justify-start items-stretch'>
-        <ul className={`grid-with-central-card`}>
+        <ul className={`grid-with-central-card mt-5 lg:m-5`}>
           <IntroNavCard
             key='introNavCard'
             gridColumn={gridColumn}
+            heightIntroCard={heightIntroCard}
+            cardsPerRow={cardsPerRow}
           />
           {arrFountains.map((fountain, index) =>
             <li key={fountain.id} className=''>

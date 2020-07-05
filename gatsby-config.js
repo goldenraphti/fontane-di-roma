@@ -69,7 +69,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Source Sans Pro&display=swap', 'Playfair Display:900&display=swap']
+          families: ['Source Sans Pro&display=swap', 'Playfair Display:600&display=swap']
         }
       }
     },

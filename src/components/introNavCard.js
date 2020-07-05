@@ -9,21 +9,24 @@ const IntroNavCard = (props) => {
         <li
             style={{
                 '--grid-col':props.gridColumn,
+                '--height-intro-card': props.heightIntroCard,
             }}
-            className='central-card flex bg-white p-8 flex-col justify-between '>
-            <div>
-                <h1 className='mb-2 text-3xl text-center'>Fontane di Roma</h1>
+            className='central-card flex bg-white p-2 lg:px-8 flex-col justify-between items-stretch'>
+            <div className='mb-6'>
+                <h1 className='mb-2 text-2xl lg:text-4xl text-center'>Fontane di Roma</h1>
                 <p>Explore Roma through photography cartography and short stories.
         Sit down, relax, and travel. Live the twelve stories, twelve destinies, twelves photography. Taking place in real spots of Roma.</p>
             </div>
-            <nav className='flex justify-between mb-4'>
-                {navigationArr.map(link =>
-                    <Link
-                        key={link.link}
-                        to={link.link}
-                        className='text-black border rounded border-pink-300 py-3 px-6 hover:shadow-sm hover:border-gray-700'>{link.text}</Link>
-                )}
-            </nav>
+            <div className='w-full flex justify-center'>
+                <nav className={`max-w-lg w-full flex justify-between mb-4 gap-4 ${props.cardsPerRow === 3 ? 'flex-wrap' : ''}`}>
+                    {navigationArr.map(link =>
+                        <Link
+                            key={link.link}
+                            to={link.link}
+                            className={`btn text-black rounded py-2 px-4 lg:py-3 lg:px-6 hover:border-pink-500 hover:shadow-sm ${props.cardsPerRow === 3 ? 'w-full' : ''}`}>{link.text}</Link>
+                    )}
+                </nav>
+            </div>
         </li>
     )
 }

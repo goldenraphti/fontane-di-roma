@@ -1,5 +1,7 @@
 body {
   font-family: 'Source Sans Pro', sans-serif;
+  color: var(--p-color-gray);
+  letter-spacing: 0.02em;
 }
 
 h1,
@@ -8,7 +10,11 @@ h3,
 h4,
 h5 {
   font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-style: italic;
+  font-weight: 600;
   letter-spacing: 0.04em;
+}
+
+p {
+  color: var(--p-color-gray);
+  letter-spacing: 0.02em;
 }

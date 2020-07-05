@@ -12,9 +12,11 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 
 import "../styles/main.css"
+import "../styles/color.css"
 import "../styles/typography.css"
 import "../styles/layout.css"
 import "../styles/index.css"
+import "../styles/buttons.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -34,12 +36,17 @@ const Layout = ({ children }) => {
     <>
       <div
         style={{
+          backgroundColor: 'var(--pink)',
+        }}
+        className='h-1 w-auto'></div>
+      <div
+        style={{
           margin: `0 auto`,
           padding: isMapPage ? '0' : `0px 1.0875rem 1.45rem`,
           paddingTop: 0,
           minHeight: '100vh',
         }}
-        className='flex flex-col justify-between'
+        className='flex flex-col justify-between text-sm lg:text-base'
         >
         { ( !isHomePage && !isMapPage) &&
           <Header siteTitle={data.site.siteMetadata.title} />

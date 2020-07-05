@@ -2,17 +2,17 @@
 ul.grid-with-central-card {
     --height-photos: 30vh;
     --grid-col:  start / end;
+    --height-intro-card: 1;
     
     display: grid;
     justify-content: center;
     grid-template-rows: var(--height-photos);
     grid-template-columns: repeat(auto-fill, calc( var(--height-photos) / 1.5));
     gap: 20px;
-    margin: 20px;
 }
 
 ul.grid-with-central-card li.central-card {
-    grid-row: 2 / span 1;
+    grid-row: 2 / span var(--height-intro-card);
     grid-column: var(--grid-col);
 }
 
@@ -29,6 +29,12 @@ ul.grid-with-central-card li.central-card {
     --five-cards-width-with-gaps: calc( 5 * var(--width-card-with-margin) );
 }
 
+.three-cards {
+    width:  calc( ( 3 * var(--width-card-with-margin ) + var(--space-around-grid)) );
+}
+.four-cards {
+    width:  calc( ( 4 * var(--width-card-with-margin ) + var(--space-around-grid)) );
+}
 .five-cards {
     width:  calc( ( 5 * var(--width-card-with-margin ) + var(--space-around-grid)) );
 }
