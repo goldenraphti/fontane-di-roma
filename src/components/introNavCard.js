@@ -13,7 +13,7 @@ const IntroNavCard = (props) => {
             }}
             className='central-card flex bg-white p-2 lg:px-8 flex-col justify-between items-stretch'>
             <div className='mb-6'>
-                <h1 className='mb-2 text-2xl lg:text-4xl text-center'>Fontane di Roma</h1>
+                <h1 className='my-2 text-2xl lg:text-4xl text-center'>Fontane di Roma</h1>
                 <p>Explore Roma through photography cartography and short stories.
         Sit down, relax, and travel. Live the twelve stories, twelve destinies, twelves photography. Taking place in real spots of Roma.</p>
             </div>

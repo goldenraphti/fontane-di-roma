@@ -37,8 +37,9 @@ const Layout = ({ children }) => {
       <div
         style={{
           backgroundColor: 'var(--pink)',
+          zIndex: '1500',
         }}
-        className='h-1 w-auto'></div>
+        className='h-1 w-auto absolute top-0 left-0 right-0'></div>
       <div
         style={{
           margin: `0 auto`,
@@ -52,10 +53,13 @@ const Layout = ({ children }) => {
           <Header siteTitle={data.site.siteMetadata.title} />
         }
         <main>{children}</main>
-        <footer className='flex justify-center mt-10'
-        >
+        <footer
+          style={{
+            zIndex:'1500',
+          }}
+          className={`flex justify-center mt-10 text-sm ${isMapPage ? 'absolute bottom-0 w-screen mb-2 text-gray-500' : ''}`}>
           {/* TODO: replace by Border Less Border Line email/website */}
-          <a href="https://www.gatsbyjs.org" className="text-gray-900">Border Less Border Line </a>
+          <a href="https://www.gatsbyjs.org" className={`${isMapPage ? 'text-gray-500' : 'text-gray-900'}`}>Border Less Border Line </a>
           - © {new Date().getFullYear()}
         </footer>
       </div>
