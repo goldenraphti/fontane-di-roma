@@ -55,7 +55,7 @@ const Layout = ({ children }) => {
         <main>{children}</main>
         <footer
           style={{
-            zIndex:'1500',
+            zIndex:'500',
           }}
           className={`flex justify-center mt-10 text-sm ${isMapPage ? 'absolute bottom-0 w-screen mb-2 text-gray-500' : ''}`}>
           {/* TODO: replace by Border Less Border Line email/website */}

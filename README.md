@@ -83,3 +83,23 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
 12. **`README.md`**: A text file containing useful reference information about your project.
+
+## MVP Roadmap
+
+- [x] on the map, move the z-index text copyright at the bottom center behind the stories modal
+- [x] add the logo with tagline instead of the photo for the ugly 404
+- [ ] photos from index link to their story opened in the map
+- [ ] photos from the photos page link to their story in the map page
+- [ ] previews of stories in the map have text that gets cropped above the photo, + the link below is blue (do we want that?)
+- [ ] lorem ipsum text is all over, it should automatically check that if it starts with lorem ipsum then only show the photo, hide the text (in both the photo preview and the story expanded)
+- [ ] it should have an editor-setting deciding if there will be any stories inside. If set to false then provide an alternative display of the website where there would be:
+- no buttons to "stories"
+- no texts in map
+- no text in preview
+- [x] improve the photo page, the header is super ugly (is it also used on the other pages such as about, contact, etc?)
+- [ ] on map page give a logo to get back to index page (and buttons to go to the photos & story pages if they exist and are displayed?), or a hamburger menu to list them
+- [ ] update/upgrade packages
+
+## Wishlist Roadmap
+
+- [ ] critical E2E testing

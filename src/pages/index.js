@@ -20,21 +20,21 @@ const HomePage = ({ data }) => {
   const refFour = useRef(null);
   const refFive = useRef(null);
   const refSeven = useRef(null);
-  
+
   useEffect(() => {
-    const aboveSevenAndHeightCards = () => document.documentElement.clientWidth > refSeven.current.offsetWidth;
+    const aboveSevenAndHeightCards = () => document.documentElement.clientWidth > refSeven?.current?.offsetWidth;
     const setForSevenAndHeightCards = () =>  {
       setGridColumn(' 3 / -3');
       setHeightIntroCard('1');
       setCardsPerRow(7);
     }
-    const aboveFourCards = () => document.documentElement.clientWidth > refFour.current.offsetWidth;
+    const aboveFourCards = () => document.documentElement.clientWidth > refFour?.current?.offsetWidth;
     const setForFourFiveAndSixCards = () =>  {
       setGridColumn(' 2 / -2');
       setHeightIntroCard('1');
       setCardsPerRow(5);
     }
-    const aboveThreeCards = () => document.documentElement.clientWidth > refThree.current.offsetWidth;
+    const aboveThreeCards = () => document.documentElement.clientWidth > refThree?.current?.offsetWidth;
     const setForAboveThreeCards = () => {
       setGridColumn(' 2 / -2');
       setHeightIntroCard('2');
@@ -45,7 +45,7 @@ const HomePage = ({ data }) => {
       setHeightIntroCard('1');
       setCardsPerRow(2);
     }
-    
+
 
     const placeIntroCard = () => {
       if (aboveSevenAndHeightCards()) {

@@ -2,38 +2,28 @@ import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
-const NotFoundPage = ({ data }) => {
+const NotFoundPage = () => {
   return (
     <Layout>
       <SEO title="404: Not found" />
-      <h1>NOT FOUND</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-
-      {/* TODO: use a photo of very lost for BG */}
-      <Img
-        className=""
-        fluid={data.file.childImageSharp.fluid}
-        alt="lost page"
-      />
+      <div className="flex flex-col items-center">
+        <h1
+          className='text-6xl'
+          style={{
+            color:`#A2108F`,
+        }}>NOT FOUND</h1>
+        <p
+          className='text-2xl'
+          style={{
+            color:`#A2108F`,
+        }}>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      </div>
 
     </Layout>
   )
 }
 
 export default NotFoundPage
-
-export const query = graphql`
-  query {
-    file(relativePath: { eq: "external/david-kovalenko-G85VuTpw6jg-unsplash.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`
-

@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import React from "react";
+import logo from '../images/logo-with-tagline.svg';
 
 const topRightCategory = [ 'home','about','contact'];
 const listCategories = topRightCategory.map((category) =>
@@ -18,7 +19,7 @@ const listCategories = topRightCategory.map((category) =>
             category !== 'home' ? category : ''
           }`}
         style={{
-          color: `#fff`,
+          color: `#A2108F`,
         }}>{category}</Link>
   </li>
 );
@@ -26,11 +27,14 @@ const listCategories = topRightCategory.map((category) =>
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: '#000',
+      background: '#fff',
       height: `60px`,
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
+      border: `1px solid #A2108F`,
+      marginLeft: `-1.0875rem`,
+      marginRight: `-1.0875rem`,
     }}
   >
     <div
@@ -44,26 +48,25 @@ const Header = ({ siteTitle }) => (
         padding: `1rem 2rem 0.8rem`,
       }}
     >
-      <h1 style={{
-        margin: 0,
-        lineHeight: 0,
-        }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-            fontSize: `20px`,
-            lineHeight: `1em`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+      <Link
+        to="/"
+        style={{
+          color: `white`,
+          textDecoration: `none`,
+          fontSize: `20px`,
+          lineHeight: `1em`,
+        }}
+      >
+        <img
+          className="h-10"
+          src={logo}
+          alt="logo Fontane di Roma"
+        />
+      </Link>
       <div>
         <ul
         style={{
-          color: `white`,
+          color: `#A2108F`,
           textDecoration: `none`,
           margin: 0,
           display: 'flex',
