@@ -7,6 +7,8 @@ import PanelStory from '../components/panelStory'
 import useMobileDetect from 'use-mobile-detect-hook'
 import PropTypes from 'prop-types'
 
+const isBrowser = typeof window !== "undefined";
+
 const MapPage = ({ data }) => {
 
   const cleanString = (stringFiltered) => stringFiltered.split('{')[1].split('}')[0];
@@ -25,7 +27,7 @@ const MapPage = ({ data }) => {
 
   // close the story panel when press Esc
   if (typeof window !== 'undefined') {
-    document.addEventListener('keyup', (e) => e.keyCode === 27 ? setIsOpened(false) : null );
+    document.addEventListener('keyup', (e) => e.key === 27 ? setIsOpened(false) : null );
   }
 
   const regex = /^(\-?\d+(\.\d+)?),\s*(\-?\d+(\.\d+)?)$/gm;
@@ -42,9 +44,9 @@ const MapPage = ({ data }) => {
 
   const arrFountains = data.allWordpressPost.edges.filter(({ node }) => ( EditorSettings.fountainsToActivate[filterPostsContent(node.content, node.title).id] === true && regex.test(filterPostsContent(node.content, node.title).latLong) ) ).map(({ node }) => ( filterPostsContent(node.content, node.title) ) );
 
-  const urlStoryId = location.search.replace('?','');
+  const urlStoryId = isBrowser ? location.search.replace('?','') : null;
   const getFountainFromId = (id) => arrFountains.find(fountain => fountain.id === id);
-  const checkIfIdAndOpenItsModal = () => urlStoryId && getFountainFromId(urlStoryId) && !isOpened ? onOpenMarker(getFountainFromId(urlStoryId)) : null;
+  const checkIfIdAndOpenItsModal = () => isBrowser && urlStoryId && getFountainFromId(urlStoryId) && !isOpened ? onOpenMarker(getFountainFromId(urlStoryId)) : null;
   useEffect( () => checkIfIdAndOpenItsModal(), []);
 
   return (

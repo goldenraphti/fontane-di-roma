@@ -89,7 +89,8 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 - [x] on the map, move the z-index text copyright at the bottom center behind the stories modal
 - [x] add the logo with tagline instead of the photo for the ugly 404
 - [ ] photos from index link to their story opened in the map
-- [ ] photos from the photos page link to their story in the map page
+- [x] photos from the photos page link to their story in the map page
+- [ ] stories load on page-load with story ID or when navigate from a photo clicked, but does not yet set new story ID when click another modal, it doesn't modify the pathname in URL
 - [ ] previews of stories in the map have text that gets cropped above the photo, + the link below is blue (do we want that?)
 - [ ] lorem ipsum text is all over, it should automatically check that if it starts with lorem ipsum then only show the photo, hide the text (in both the photo preview and the story expanded)
 - [ ] it should have an editor-setting deciding if there will be any stories inside. If set to false then provide an alternative display of the website where there would be:
@@ -98,6 +99,9 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 - no text in preview
 - [x] improve the photo page, the header is super ugly (is it also used on the other pages such as about, contact, etc?)
 - [ ] on map page give a logo to get back to index page (and buttons to go to the photos & story pages if they exist and are displayed?), or a hamburger menu to list them
+- [ ] make hamburger menu for mobile
+- [ ] write other pages (about, contact, 404)
+
 
 ## Wishlist Roadmap
 
