@@ -1,4 +1,4 @@
-import React, { useState }  from "react"
+import React, { useEffect, useState }  from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import MapUI from "../components/mapui"
@@ -27,7 +27,7 @@ const MapPage = ({ data }) => {
   if (typeof window !== 'undefined') {
     document.addEventListener('keyup', (e) => e.keyCode === 27 ? setIsOpened(false) : null );
   }
-  
+
   const regex = /^(\-?\d+(\.\d+)?),\s*(\-?\d+(\.\d+)?)$/gm;
 
   const filterPostsContent = (postContent, title) => {
@@ -39,6 +39,13 @@ const MapPage = ({ data }) => {
     const story = cleanString( arrCleanedContent.find( str => str.includes('STORY')) );
     return { id, latLong, imgPath, story, title };
   }
+
+  const arrFountains = data.allWordpressPost.edges.filter(({ node }) => ( EditorSettings.fountainsToActivate[filterPostsContent(node.content, node.title).id] === true && regex.test(filterPostsContent(node.content, node.title).latLong) ) ).map(({ node }) => ( filterPostsContent(node.content, node.title) ) );
+
+  const urlStoryId = location.search.replace('?','');
+  const getFountainFromId = (id) => arrFountains.find(fountain => fountain.id === id);
+  const checkIfIdAndOpenItsModal = () => urlStoryId && getFountainFromId(urlStoryId) && !isOpened ? onOpenMarker(getFountainFromId(urlStoryId)) : null;
+  useEffect( () => checkIfIdAndOpenItsModal(), []);
 
   return (
     <Layout>
@@ -68,7 +75,7 @@ const MapPage = ({ data }) => {
         setIsOpened = {setIsOpened}
         openedStory = {openedStory}
         isMobile= {detectMobile.isMobile()}
-        arrFountains={data.allWordpressPost.edges.filter(({ node }) => ( EditorSettings.fountainsToActivate[filterPostsContent(node.content, node.title).id] === true && regex.test(filterPostsContent(node.content, node.title).latLong) ) ).map(({ node }) => ( filterPostsContent(node.content, node.title) ) ) }
+        arrFountains={arrFountains}
       />
     </Layout>
   )
