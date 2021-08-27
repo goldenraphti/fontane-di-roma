@@ -41,7 +41,7 @@ const Header = ({ siteTitle }) => (
       style={{
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: (typeof window !== 'undefined') && window.innerWidth < 900 ? 'center' : 'baseline',
+        alignItems: `center`,
         margin: `0 auto`,
         width: `100%`,
         maxWidth: 960,

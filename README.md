@@ -98,8 +98,8 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 - no text in preview
 - [x] improve the photo page, the header is super ugly (is it also used on the other pages such as about, contact, etc?)
 - [ ] on map page give a logo to get back to index page (and buttons to go to the photos & story pages if they exist and are displayed?), or a hamburger menu to list them
-- [ ] update/upgrade packages
 
 ## Wishlist Roadmap
 
+- [ ] update/upgrade packages
 - [ ] critical E2E testing

@@ -15,7 +15,7 @@ const PhotosGridPage = ({ data }) => {
         <Layout>
             <SEO title="Home" />
             <div>
-                <h1>Fontane di Roma</h1>
+                <h1 className='text-6xl'>Photos</h1>
                 <nav>
                     <Link
                         to='/mapPage'
